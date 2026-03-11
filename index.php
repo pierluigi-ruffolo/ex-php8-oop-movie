@@ -1,26 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
 <?php
-
+require_once "./Traits/Visualizable.php";
 require_once "./Models/Genre.php";
 require_once "./Models/Movie.php";
-$pulpFiction = new Movie(
-    "Pulp Fiction",
-    "Le vite di due sicari si intreccia",
-    1994,
-    5,
-    [new Genre("Azione"), new Genre("triller")]
-);
-$interstellar = new Movie(
-    "Interstellar",
-    "Un gruppo di astronauti viaggia attraverso un wormhole alla ricerca di una nuova casa per l'umanità.",
-    2014,
-    4,
-    [new Genre("Azione"), new Genre("Thriller")]
-);
+require_once "./db.php";
+
+var_dump($movies[0]->getSummary());
 
 ?>
-
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -29,13 +17,7 @@ $interstellar = new Movie(
 </head>
 
 <body>
-    <?php
-    echo $pulpFiction->getSummary() . " ";
-    echo $pulpFiction->getVoteStars();
-    echo "<br>";
-    echo $interstellar->getSummary() . " ";
-    echo $interstellar->getVoteStars();
-    ?>
+
 </body>
 
 </html>
