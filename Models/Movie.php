@@ -19,11 +19,7 @@ class Movie
         $this->genres = $_genres;
     }
 
-    public function getSummary()
-    {
-        return "titolo film: " . $this->title . "<br>" . "descrizione " . $this->description . "<br>" . "anno uscita " . $this->release_year;
-    }
-    public function getVoteStars()
+    public function getVoteStars(): string
     {
         $stars = "";
         for ($i = 0; $i < 5; $i++) {
@@ -33,6 +29,6 @@ class Movie
                 $stars .= "☆";
             }
         }
-        return "voto " . $stars;
+        return $stars;
     }
 }
