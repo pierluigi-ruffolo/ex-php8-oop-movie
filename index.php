@@ -3,6 +3,7 @@ require_once "./Traits/Visualizable.php";
 require_once "./Models/Genre.php";
 require_once "./Models/Movie.php";
 require_once "./db.php";
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -48,7 +49,7 @@ require_once "./db.php";
                         <div class="card-footer bg-body-tertiary border-0 px-4 py-3">
                             <div class="d-flex justify-content-between align-items-center text-secondary">
                                 <div class="small">
-                                    <?php echo $movie->release_year ?>
+                                    <?php echo $movie->getRelease_year() ?>
                                 </div>
 
                                 <div class="fw-bold text-warning small">
