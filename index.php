@@ -3,8 +3,6 @@ require_once "./Traits/Visualizable.php";
 require_once "./Models/Genre.php";
 require_once "./Models/Movie.php";
 require_once "./db.php";
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,42 +25,40 @@ require_once "./db.php";
     </header>
     <main class="container mb-5">
         <div class="row g-4">
-            <div class="col-12 col-md-6 col-lg-4">
-                <div class="card h-100 border-0 shadow-sm rounded-4">
-                    <div class="card-header bg-transparent border-0 pt-4 px-4 pb-0">
-                        <div class="d-flex justify-content-between align-items-start">
-                            <h5 class="card-title fw-bold text-dark mb-0 text-uppercase">
-                                Titolo Film
-                            </h5>
-                            <span class="badge rounded-pill bg-info-subtle text-info border border-info-subtle">
-                                NEW
-                            </span>
-                        </div>
-                    </div>
-                    <div class="card-body px-4">
-                        <div class="mb-3">
-                            <span class="badge bg-secondary-subtle text-secondary border-0 fw-normal">Genere 1</span>
-                            <span class="badge bg-secondary-subtle text-secondary border-0 fw-normal">Genere 2</span>
-                        </div>
-
-                        <p class="card-text text-muted small">
-                            Inserisci qui la descrizione del film recuperata tramite il tuo metodo o proprietà.
-                        </p>
-                    </div>
-
-                    <div class="card-footer bg-body-tertiary border-0 px-4 py-3">
-                        <div class="d-flex justify-content-between align-items-center text-secondary">
-                            <div class="small">
-                                2026
+            <?php foreach ($movies as $movie) {
+            ?>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card h-100 border-0 shadow-sm rounded-4">
+                        <div class="card-header bg-transparent border-0 pt-4 px-4 pb-0">
+                            <div class="d-flex justify-content-between align-items-start">
+                                <h5 class="card-title fw-bold text-dark mb-0 text-uppercase">
+                                    <?php echo $movie->title ?>
+                                </h5>
+                                <?php echo $movie->GetIsNew() ?>
                             </div>
+                        </div>
+                        <div class="card-body px-4">
+                            <?php foreach ($movie->genres as $genre) { ?>
+                                <span class="badge bg-secondary-subtle text-secondary border-0 fw-normal"><?php echo $genre->name ?></span>
+                            <?php } ?>
+                            <p class="card-text text-muted small mt-3">
+                                <?php echo $movie->description ?>
+                            </p>
+                        </div>
+                        <div class="card-footer bg-body-tertiary border-0 px-4 py-3">
+                            <div class="d-flex justify-content-between align-items-center text-secondary">
+                                <div class="small">
+                                    <?php echo $movie->release_year ?>
+                                </div>
 
-                            <div class="fw-bold text-warning small">
-                                Voto:
+                                <div class="fw-bold text-warning small">
+                                    Voto: <?php echo $movie->getVoteStars() ?>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            <?php } ?>
         </div>
     </main>
 </body>
