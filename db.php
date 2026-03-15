@@ -7,7 +7,6 @@ $commedia = new Genre("Commedia");
 $horror = new Genre("Horror");
 $animazione = new Genre("Animazione");
 $thriller = new Genre("Thriller");
-
 try {
     $movies = [
         new Movie("Pulp Fiction", "Le vite di due sicari si intrecciano.", 1945, 5, [$azione, $thriller]),

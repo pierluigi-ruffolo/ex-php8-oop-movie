@@ -9,8 +9,6 @@ class Movie
     public $genres;
     public function __construct(string $_title, string $_description, int $_releaseYear, int $_vote, array $_genres)
 
-
-
     {
         $this->setRelease_year($_releaseYear);
         $this->setVote($_vote);
